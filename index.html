@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Valentine ❤️</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #ffe6f2;
+            min-height: 100vh;
+            margin: 0;
+            padding: 15px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 500px;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            margin: 15px auto;
+            position: relative;
+            z-index: 2;
+            display: none;
+        }
+
+        #screen1 {
+            display: block;
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .btn {
+            padding: 18px 40px;
+            border: none;
+            border-radius: 12px;
+            font-size: 26px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-next {
+            background: #ff4d6d;
+            color: white;
+        }
+
+        .btn-yes {
+            background: #4CAF50;
+            color: white;
+            min-width: 130px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-no {
+            background: #f44336;
+            color: white;
+            min-width: 130px;
+        }
+
+        h1, h2 {
+            color: #e91e63;
+            font-size: 34px;
+            margin: 20px 0;
+        }
+
+        .floating-heart {
+            position: fixed;
+            font-size: 24px;
+            color: rgba(255, 105, 180, 0.3);
+            z-index: 1;
+            animation: floatUp linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-20vh) scale(1.5) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 15px;
+            margin: 15px 0;
+            object-fit: cover;
+        }
+
+        .poem {
+            font-style: italic;
+            line-height: 1.8;
+            margin: 20px 0;
+            color: #d63384;
+            font-size: 22px;
+        }
+
+        p {
+            margin: 15px 0;
+            font-size: 20px;
+        }
+
+        h3 {
+            font-size: 28px;
+            color: #e91e63;
+            margin: 20px 0;
+        }
+
+        .promises {
+            text-align: left;
+            padding: 10px 20px;
+            font-size: 20px;
+            line-height: 1.8;
+            color: #d63384;
+        }
+    </style>
+</head>
+<body>
+    <div id="hearts-container"></div>
+
+    <div id="screen1" class="container">
+        <h1>Hello Katrina👋</h1>
+        <img src="./images/image 1.jpg" alt="Christine">
+        <p>Step forward, because this is all about <em>you</em> 💌</p>
+        <button class="btn btn-next" onclick="nextScreen(2)">Next</button>
+    </div>
+
+    <div id="screen2" class="container">
+        <h2>Will you be my Valentine? ❤️</h2>
+        <div class="buttons-container">
+            <button id="yesBtn" class="btn btn-yes" onclick="handleYes()">YES</button>
+            <button id="noBtn" class="btn btn-no" onclick="handleNo()">NO</button>
+        </div>
+        <img src="./images/Pic 1.jpg" alt="Valentine Picture" style="max-width: 250px;">
+    </div>
+
+    <div id="screen3" class="container">
+        <h2>Yayy! Thank you, my love! ❤️</h2>
+        <p>You make my world brighter! I will love you till the day I die, and I can't imagine a single day without you. ❤️</p>
+        <p>You are the most wonderful and amazing part of my life. I am so lucky to have you. Thank you for always being by my side. I love you beyond imagination—you are my everything. Let's stay together forever❤️</p>
+        <img src="./images/image 2.jpg" alt="Us Together">
+        <button class="btn btn-next" onclick="nextScreen(4)">Continue ❤️</button>
+    </div>
+
+    <div id="screen4" class="container">
+        <img src="./images/image 3.jpg" alt="Final Image">
+        <p class="poem">
+            "My darling, my sunshine ☀️<br>
+            Your love makes my heart dance 💃<br>
+            Every moment with you is pure magic ✨<br>
+            Like stars in a romantic trance 🌟<br><br>
+            Your smile lights up my world 🌍<br>
+            Your touch makes my heart flutter 💖<br>
+            You're my soulmate, my everything 👩‍❤️‍👨<br>
+            My love for you will last forever 🔒"
+        </p>
+        <button class="btn btn-next" onclick="nextScreen(5)">Continue ❤️</button>
+    </div>
+
+    <div id="screen5" class="container">
+        <h2>My Promises To You ❤️</h2>
+        <div class="promises">
+            1) I promise to keep you smiling every single day, no matter what! 😊❤️<br><br>
+            2) I promise to love you endlessly, through every high and low. 💕🌍<br><br>
+            3) I promise to always listen to you, understand you, and stand by your side. 🤗💖<br><br>
+            4) I promise to make even the smallest moments special, just because you're in them. ✨💞<br><br>
+            5) I promise to be your forever Valentine, today and always. 💘♾️
+        </div>
+        <img src="./images/image 4.jpg" alt="Promise Image">
+        <h3>I love you so much ❤️</h3>
+    </div>
+
+    <script>
+        let noCount = 0;
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const messages = [
+            "Pleaseee🥲",
+            "Are you sure?😭",
+            "Please one chance😭",
+            "Pleaseee😭"
+        ];
+
+        function createHeart() {
+            for(let i = 0; i < 5; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤️';
+                heart.classList.add('floating-heart');
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                document.getElementById('hearts-container').appendChild(heart);
+                setTimeout(() => heart.remove(), 5000);
+            }
+        }
+
+        setInterval(createHeart, 60);
+
+        function handleNo() {
+            noCount++;
+            noBtn.textContent = messages[noCount % messages.length];
+            const scale = 1 + (noCount * 0.2);
+            yesBtn.style.transform = `scale(${scale})`;
+            if(scale > 2) {
+                yesBtn.style.zIndex = "1000";
+            }
+        }
+
+        function handleYes() {
+            nextScreen(3);
+        }
+
+        function nextScreen(num) {
+            document.querySelectorAll('.container').forEach(screen => {
+                screen.style.display = 'none';
+            });
+            document.getElementById('screen' + num).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
